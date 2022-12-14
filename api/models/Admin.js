@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
 const adminSchema = new mongoose.Schema({
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
   name: {
     type: String,
     required: true,
@@ -29,6 +33,24 @@ const adminSchema = new mongoose.Schema({
   addres: {
     type: String,
   },
-});
+  country: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  zipCode: {
+    type: String,
+    required: true,
+  },
+  properties: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Property',
+  },
+},
+  { timestamps: true }
+);
 
 export default mongoose.model('Admin', adminSchema);

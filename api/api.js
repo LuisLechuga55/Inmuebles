@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { adminRoutes } from './routes/index.js';
+import { adminRoutes, messageRoutes, propertyRoutes } from './routes/index.js';
 
 const api = express();
 
@@ -23,9 +23,8 @@ api.get('/', (_, res) => {
 
 api.use('/admin', adminRoutes);
 
+api.use('/property', propertyRoutes);
+
+api.use('/property/messages', messageRoutes);
+
 export default api;
-
-
-// master-dev.f/portafolio/tengotechoytuno
-// master-dev.f/portafolio/ecommerce-backend
-// inmuebles
