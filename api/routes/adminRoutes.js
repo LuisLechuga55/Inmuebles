@@ -1,6 +1,10 @@
 import express from 'express';
 import { adminController } from '../controllers/index.js';
-import { registerAdminValidator, loginAdminValidator } from '../middlewares/index.js';
+import {
+  registerAdminValidator,
+  loginAdminValidator,
+  authValidator,
+} from '../middlewares/index.js';
 
 const router = express.Router();
 
@@ -14,15 +18,15 @@ router
 
 router
   .route('/')
-  .get(adminController.getAllAdmins);
+  .get(authValidator, adminController.getAllAdmins);
 
 router
   .route('/:id')
-  .get(adminController.getOneAdmin)
-  .patch(adminController.updateAdmin);
+  .get(authValidator, adminController.getOneAdmin)
+  .patch(authValidator, adminController.updateAdmin);
 
 router
   .route('/:id/destroy')
-  .delete(adminController.deleteAdmin);
+  .delete(authValidator, adminController.deleteAdmin);
 
 export default router;
