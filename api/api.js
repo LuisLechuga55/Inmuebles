@@ -1,6 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import { adminRoutes, messageRoutes, propertyRoutes } from './routes/index.js';
+import {
+  adminRoutes,
+  messageRoutes,
+  propertyRoutes,
+  costumerRoutes,
+} from './routes/index.js';
 
 const api = express();
 
@@ -22,6 +27,8 @@ api.get('/', (_, res) => {
 });
 
 api.use('/admin', adminRoutes);
+
+api.use('/costumer', costumerRoutes);
 
 api.use('/property', propertyRoutes);
 
