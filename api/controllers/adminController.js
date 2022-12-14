@@ -47,7 +47,6 @@ const adminLogin = async (req, res) => {
       adminLastName: admin.lastName,
       adminEmail: admin.email,
       adminPhone: admin.phone,
-      adminAddress: admin.address,
     };
 
     const token = jwt.encode(payload, config.token.secret);
