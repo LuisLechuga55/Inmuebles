@@ -8,7 +8,6 @@ const adminSchema = joi.object({
   email: joi.string().required(),
   password: joi.string().required(),
   addres: joi.string(),
-  country: joi.string().required(),
   city: joi.string().required(),
   zipCode: joi.string().required(),
 });
