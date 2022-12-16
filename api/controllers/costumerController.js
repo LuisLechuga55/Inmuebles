@@ -43,11 +43,11 @@ const loginCostumer = async (req, res) => {
     };
 
     const payload = {
-      costumerId: costumer._id,
-      costumerName: costumer.name,
-      costumerLastName: costumer.lastName,
-      costumerEmail: costumer.email,
-      costumerPhone: costumer.phone,
+      costumId: costum._id,
+      costumName: costum.name,
+      costumLastName: costum.lastName,
+      costumEmail: costum.email,
+      costumPhone: costum.phone,
     };
 
     const token = jwt.encode(payload, config.token.secret);
@@ -56,12 +56,12 @@ const loginCostumer = async (req, res) => {
 
     return res.json({
       message: 'Login correcto del cliente',
-      data: token,
+      token,
     });
   } catch (error) {
     return res.status(500).json({
       message: 'Error al iniciar sesión',
-      data: error,
+      data: error.message,
     });
   }
 };

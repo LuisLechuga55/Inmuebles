@@ -55,7 +55,7 @@ const adminLogin = async (req, res) => {
 
     return res.json({
       message: 'Login correcto de Administrador',
-      data: token,
+      token,
     });
   } catch (error) {
     return res.status(500).json({
