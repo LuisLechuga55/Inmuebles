@@ -5,6 +5,7 @@ import {
   messageRoutes,
   propertyRoutes,
   costumerRoutes,
+  imageRoutes,
 } from './routes/index.js';
 
 const api = express();
@@ -31,6 +32,8 @@ api.use('/admin', adminRoutes);
 api.use('/costumer', costumerRoutes);
 
 api.use('/property', propertyRoutes);
+
+api.use('/images', imageRoutes);
 
 api.use('/property/messages', messageRoutes);
 
